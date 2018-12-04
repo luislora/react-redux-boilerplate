@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import PropTypes from 'prop-types';
 
 import '../styles/App.scss';
 
@@ -31,9 +32,12 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fetchItems: () => {dispatch(actions.fetchItemList());}
-  };
-      
+  };     
 }
+
+TestingContainer.propTypes = {
+  itemList: PropTypes.array
+};
 
 const ConnectedTestingContainer = connect(mapStateToProps, mapDispatchToProps)(TestingContainer);
 
