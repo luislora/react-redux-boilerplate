@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import ItemList from '../components/ItemList';
 import PropTypes from 'prop-types';
-
-import '../styles/App.scss';
 
 class TestingContainer extends Component {
   
@@ -11,14 +10,7 @@ class TestingContainer extends Component {
     const {itemList} = this.props;
     
     return (
-      <div>
-        <ul>
-          { itemList.length ? 
-            itemList.map((item, index) => { return <li key={index}>{item}</li>;}) : 
-            <li>No items</li>
-          }
-        </ul>
-      </div>
+      <ItemList items={itemList} />
     );
   }
 }
